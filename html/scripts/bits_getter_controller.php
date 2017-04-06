@@ -25,8 +25,9 @@ function getBitstreamIdThumb($id_req)
 }
 function getBitstreamImg($id_req, $i)
 {
+    $linkStr = "../images/rockImages/" . $id_req . ".jpg";
     $imgStr = "../images/resizedImages/" . $id_req . ".jpg";
-    return ('<img style="left: -25px;" src="' . $imgStr . '"/>');
+    return ('<a href="'.$linkStr.'"> <img style="left: -25px;" src="' . $imgStr . '"/></a>');
 }
 
 function getBitstreamThumb($id_req)
