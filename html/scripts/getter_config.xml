@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<getters>
+	<request>
+		<request_url>http://mydspaceis.dis.eafit.edu.co/rest</request_url>
+		<request_method>GET</request_method>
+		<header_token>b285b291-7974-7f88-a82d-d0cdb54d136f</header_token>
+		<header_cache>no-cache</header_cache>
+		<header_auth>Basic YWRtaW5AZWFmaXQuZWR1LmNvOmg3eXBibndWMGtENA==</header_auth>
+		<bundleNameO>ORIGINAL</bundleNameO>
+		<bundleNameThumb>THUMBNAIL</bundleNameThumb>
+	</request>
+
+	<metadata>
+		<article_date>dc.date.issued</article_date>
+		<name>dc.title</name>
+		<author>dc.contributor.author</author>
+		<location>atlasrocas.location</location>
+		<textures>atlasrocas.texture.general</textures>
+		<height>atlasrocas.height</height>
+		<id>atlasrocas.code</id>
+		<desc_macro>atlasrocas.macro</desc_macro>
+		<desc_micro>atlasrocas.micro</desc_micro>
+		<metamorphism>atlasrocas.metamorphism</metamorphism>
+		<afloramiento>atlasrocas.outcrop</afloramiento>
+		<desc_mineral>atlasrocas.mineralogy</desc_mineral>
+		<desc_textures_intragranos>atlasrocas.texture.intragrain</desc_textures_intragranos>
+		<latitude>location.latitude</latitude>
+		<longitude>location.longitude</longitude>
+		<zone>location.zone</zone>
+	</metadata>
+</getters>

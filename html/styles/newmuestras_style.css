@@ -1,0 +1,161 @@
+#cabeza {
+    width: 100%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+#muestras {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 3%;
+}
+
+#busqueda {
+    width: 100%;
+    margin: auto;
+    height: 400px;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: inline-block;
+}
+
+.elemento {
+    display: inline-block;
+    position: relative;
+    width: 270px;
+}
+
+.boxelemento {
+    width: 68%;
+    height: 70px;
+    background-color: #5A9B1E;
+    float: left;
+    text-align: center;
+    color: white;
+}
+
+#thumbnail {
+    float: left;
+    width: 32%;
+    height: 70px;
+    position: absolute;
+    z-index: 1;
+}
+
+#thumbnail:hover {
+    background: rgba(90, 155, 30, 0.5);
+}
+
+#thumbnailImg {
+    float: left;
+    width: 32%;
+    height: 70px;
+    z-index: 0;
+}
+
+table {
+    margin: auto;
+}
+
+.page {
+    color: #fff;
+    border: 0px;
+    margin: auto;
+}
+
+.cellpadding {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+#nameThumb {
+    padding-top: 5%;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+}
+
+#dateThumb {
+    font-size: 0.7em;
+    padding-top: 3%;
+    font-weight: bold;
+    color: white;
+}
+
+.pageNav {
+    width: 5%;
+    height: 5%;
+    color: black;
+    margin: auto;
+    padding-left: 2%;
+}
+
+#nav {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+.pageNav:hover {
+    color: green;
+}
+
+#searchBar {
+    margin-right: 5%;
+    display: block;
+    height: 60px;
+    float: right;
+}
+
+#buttonSearch {
+    margin-left: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    float: right;
+    background-image: url(../images/newimgs/RC1.jpg);
+}
+
+#query {
+    /*width: 30%;
+    float: right;*/
+}
+
+#footer {
+    margin-top: 1%;
+    margin-bottom: 5%;
+    width: 100%;
+    display: block;
+    bottom: 0;
+}
+
+#footer img, #footer div {
+    width: 10%;
+    height: 10%;
+    margin-top: 10px;
+}
+
+.logo1 {
+    margin-left: 20%;
+}
+
+.logo2 {
+    height: 90px;
+    margin-left: 16%;
+}
+
+#creditos {
+    margin-left: 16%;
+    margin-top: 35px;
+    cursor: pointer;
+    color: white;
+}
+
+#creditos2 {
+    margin-left: 16%;
+    margin-top: 35px;
+    cursor: pointer;
+    color: blue;
+}

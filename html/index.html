@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app='atlas'>
+	<head>
+  	<meta charset='utf-8'>
+
+    <link href="bower_components/ng-mfb/mfb/dist/mfb.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="bower_components/foundation/css/foundation.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="styles/cover.css">
+    <link rel="stylesheet" href="styles/jquery.bxslider.css">
+    <link rel="stylesheet" href="styles/magnific-popup.css">
+    <link rel="shortcut icon" href="images/icono.png"/> <!-- Linea para agregar icono a las tabs -->
+
+      <!--		Librerias de javaScript -->
+		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC9Nxu6HBZrhXdjRRSUuasxrIei6dhfwRo"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/ng-mfb/src/mfb-directive.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.orbit.js"></script>
+    <script src="bower_components/gmaps.js/gmaps.js"></script>
+    <script src="styles/jquery.bxslider.min.js"></script>
+    <script src="styles/magnific-popup.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!--<script src="https://maps.google.com/maps/api/js?sensor=false"></script>-->
+    <!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA4nMnWc1Le3E3puNxwQhBRIuOaqDBg-4U&sensor=false"</script>-->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></script>-->
+
+      <!--	Controllers AngularJS-->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/IndexController.js"></script>
+    <script src="scripts/controllers/LoginController.js"></script>
+    <script src="scripts/controllers/SignupController.js"></script>
+    <script src="scripts/controllers/MapController.js"></script>
+    <!--<script src="scripts/controllers/Zona1Controller.js"></script>-->
+    <script src="scripts/controllers/NewSampleController.js"></script>
+    <script src="scripts/controllers/SampleController.js"></script>
+
+      <!--    Services AngularJS-->
+    <script src="scripts/services/userService.js"></script>
+    <script src="scripts/services/gpsService.js"></script>
+
+    <title>Atlas de rocas metamorficas</title>
+  </head>
+  <body ng-controller="IndexController">
+
+    <div flex ui-view></div>
+
+
+    <nav ng-show="v5" mfb-menu position="tr" effect="slidein-spring" label="{{username}}" active-icon="ion-android-create" resting-icon="ion-navicon-round" toggling-method="click">
+      <button mfb-button icon="ion-power" ng-click="logout()" label="Cerrar sesion"></button>
+    </nav>
+
+    <nav ng-show="v6" mfb-menu position="tr" effect="slidein-spring" label="{{username}}" active-icon="ion-android-create" resting-icon="ion-navicon-round" toggling-method="click">
+      <button mfb-button icon="ion-plus-round" ui-sref="insert" label="Agregar muestras"></button>
+      <button mfb-button icon="ion-power" ng-click="logout()" label="Cerrar sesion"></button>
+    </nav>
+
+
+	</body>
+</html>

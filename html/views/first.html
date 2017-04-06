@@ -1,0 +1,35 @@
+<style>
+    html,
+    body {
+        background: url(images/background.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-color: #2E3430;
+        color: #fff;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    }
+</style>
+
+<div id="container">
+    <div id="body">
+        <a href="index.html#/atlas"><img id="cabeza" src="images/logo.png"></a><img id="cabeza2" src="images/Esuela-03.png">
+        <div layout="row" layout-align="center start" layout-margin layout-fill layout-padding>
+            <div ng-show="v1" flex ui-view="login"></div>
+            <div ng-show="v2" flex ui-view="signup"></div>
+            <div ng-show="v3" flex ui-view="map"></div>
+        </div>
+
+        <div ng-show="v7" class="twentysquare" layout="row" layout-align="space-around center" id="block">
+            <md-button href="views/newmuestras_pag.php"><img style="width : 13vw" src="images/muestras-01.png"></md-button>
+            <a href="http://mapas.eafit.edu.co/rid=1NBZ5F4Z1-1PTB26Y-BJ/Definici%C3%B3n_Metamorfismo.cmap" target="_blank"><img style="width : 13vw" src="images/muestras-02.png"></a>
+            <md-button ui-sref="glosario"><img style="width : 13vw" src="images/muestras-03.png"></md-button>
+        </div>
+    </div>
+    <div id="footer" layout="row">
+        <img class="logo1" src="images/logoeafit.png" />
+        <img class="logo2" src="images/logop50.png" />
+        <a id="creditos" ui-sref="creditos"><strong>Créditos</strong></a>
+    </div>
+</div>

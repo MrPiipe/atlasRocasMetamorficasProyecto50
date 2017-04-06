@@ -1,0 +1,24 @@
+<script src="scripts/login.js"></script>
+<div layout="row" layout-align="center center">
+	<h1 style="color: #fff"><i class="ion-person"></i>Iniciar Sesión</h1>
+</div>
+	<hr>
+<form action="javascript:openPage();" method="post">
+    <div class="row">
+      <div class="large-12 columns">
+        <label style="color: #fff">Correo Electronico
+          <input id="user" type="text" name="email" placeholder="Correo" required/>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label style="color: #fff">Contraseña
+          <input id="pass" type="password" name="passw" placeholder="Contraseña" required/>
+        </label>
+      </div>
+    </div>
+    <div layout="row" layout-align="center center">
+		  <md-button class="md-raised md-primary" ng-click="login()" >Iniciar Sesion</md-button>
+	  </div>
+</form>

@@ -1,0 +1,157 @@
+<style>
+  html,
+  body {
+    background: url(../images/background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #2E3430;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  }
+</style>
+
+<div layout="row" layout-align="center center">
+	<h1 style="color: #fff"><i class="ion-plus-round"></i> Nueva muestra</h1> 
+</div>
+<hr>
+<div layout="row" layout-align="center start" layout-margin layout-fill layout-padding>
+  <div flex>
+      <form id="formulario" class="form-horizontal">
+        <div class="row">
+          <div class="large-12 columns">
+            <label style="color: #fff">Nombre muestra
+              <input name="nombre" type="text" placeholder="Ingrese el nombre de la muestra" ng-model="name"/>
+            </label>
+          </div>
+          <div class="large-12 columns">
+            <label style="color: #fff">Codigo muestra
+              <input name="codigo" type="text" placeholder="Ingrese el codigo de la muestra"/>
+            </label>
+          </div>
+          <div class="large-6 columns">
+            <label style="color: #fff">Nombre Recolector
+              <input name="nombreR" type="text" placeholder="Ingrese el nombre del recolector"/>
+            </label>
+          </div>
+          <div class="large-6 columns">
+            <label style="color: #fff">Año Recolector
+              <input name="ano" type="text" placeholder="Ingrese el ano de recoleccion"/>
+            </label>
+          </div>
+        </div>    
+        <div class="row">
+          <div class="large-4 columns">
+            <label style="color: #fff">Link de la imagen 1
+              <input name="imagenuno" type="text" placeholder="http://" ng-model="imagenuno"/>
+            </label>
+          </div>
+          <div class="large-4 columns">
+            <label style="color: #fff">Link de la imagen 2
+              <input name="imagendos" type="text" placeholder="http://" ng-model="imagendos"/>
+            </label>
+          </div>
+          <div class="large-4 columns">
+            <label style="color: #fff">Link de la imagen 3
+              <input name="imagentres" type="text" placeholder="http://" ng-model="imagentres"/>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label style="color: #fff">Descripción macroscópica
+              <textarea name="macros" rows="4" placeholder="Ingrese la descripción macroscópica" ng-model="macros"></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label style="color: #fff">Descripción microscópica
+              <textarea name="micros" rows="4" placeholder="Ingrese la descripción microscópica" ng-model="micros"></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label style="color: #fff">Descripcion mineralogica <span style="color: #787c81">
+              <input name="porcentaje" type="text" placeholder="Ingrese los porcentajes" ng-model="porcentaje"/>
+            </label>
+          </div>
+        </div>  
+        <div class="row">
+          <div class="large-12 columns">
+            <label  style="color: #fff">Textura general
+              <input name="textura" type="text" placeholder="Ingrese la descripción de la textura general" ng-model="textura"/>
+            </label>
+          </div>
+          <div class="large-12 columns">
+            <label  style="color: #fff">Tipo de Afloramiento
+              <input name="afloramiento" type="text" placeholder="Ingrese el tipo de afloramiento" ng-model="afloramiento"/>
+            </label>
+          </div>
+        </div> 
+        <div class="row">
+          <div class="large-12 columns">
+            <label style="color: #fff">Descripción textura intragranos
+              <textarea name="intragranos" rows="4" placeholder="Ingrese la descripción de textura intragranos" ng-model="intragranos"></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label style="color: #fff">Tipo y grado de metamorfismo
+              <textarea name="grado" rows="4" placeholder="Ingrese el tipo y grado de metamorfismo" ng-model="grado"></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            <label style="color: #fff">Latitud
+              <input name="latitud" type="text" placeholder="Ingrese la latitud" ng-model="latitud"/>
+            </label>
+          </div>
+          <div class="large-3 columns">
+            <label style="color: #fff">Longitud
+              <input name="longitud" type="text" placeholder="Ingrese la longitud" ng-model="longitud"/>
+            </label>
+          </div>
+          <div class="large-3 columns">
+            <label style="color: #fff">Altitud
+              <input name="altitud" type="text" placeholder="Ingrese la altura" ng-model="altitud"/>
+            </label>
+          </div>
+          <div class="large-3 columns">
+            <label style="color: #fff">Zona
+              <input name="zona" type="text" placeholder="Ingrese el numero de la zona a la que pertenece la muestra" ng-model="zona"/>
+            </label>
+          </div>
+        </div>
+        <div layout="row" layout-align="center center">
+          <input type="button" id="btn-crear" value="Guardar"></input>
+         
+          <!--<input type="button" id="btn-crear" value="Ingresar" class="btn btn-primary"/>-->
+        </div>
+      </form>
+      <script>
+    $(function() {
+      $("#btn-crear").click(function(){
+        var url = "scripts/Database/CrearMuestra.php"
+
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: $("#formulario").serialize(),
+          success: function(data){
+            window.location = "index.html#/atlas"
+            
+          }
+        });
+        return false;
+      });
+    });
+    </script>
+  </div>
+</div>
+
+
