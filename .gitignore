@@ -1,0 +1,10 @@
+/html/node_modules
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+/html/images/rockImages
+/html/images/resizedImages
+Homestead.json
+Homestead.yaml
+.env
