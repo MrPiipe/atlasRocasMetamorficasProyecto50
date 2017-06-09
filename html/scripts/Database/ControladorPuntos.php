@@ -1,5 +1,6 @@
 <?php
     //TODO: Implementar REDIS
+    /*
     $bd = "atlasmetamorfico";
     $server ="localhost";
     $user = "root";
@@ -19,16 +20,15 @@
     }
 
     echo json_encode($array_user);
-/*
+    */
     require "../predis/autoload.php";
-    include '../scripts/bits_getter_controller.php';
     Predis\Autoloader::register();
 
     $redis   = new Predis\Client();
 
-    $idsArray = $redis->Lrange('ItemIds', 0, -1);
-
-    for ($i = 0; $i < count($idsArray); $i++) {
+    $ids = $redis->Lrange('ItemIds', 0, -1);
+    $mapArray = array();
+    foreach ($ids as $id) {
         $mapArray['name'][$i] = $redis->Lrange('ItemNames', $i, $i);
         $mapArray['ids'][$i]  = $redis->Lrange('ItemIds', $i, $i);
         $mapArray['longitude'][$i] = $redis->Lrange('longitude', $i, $i);
