@@ -38,13 +38,13 @@ for ($i = 0; $i < count($ids);$i++) {
     $mapArray['longitud'][$i] = $redis->Lrange('Longitudes', $i, $i);
     $mapArray['latitud'][$i] = $redis->Lrange('Latitudes', $i, $i);
     $mapArray['zona'][$i] = $redis->Lrange('Zones', $i, $i);
-    // $mapArray['nombreR'][$i] = $redis->Lrange('itemNames', $i, $i);
-    // $mapArray['ano'][$i] = getItemDate($ids[$i]);
+    $mapArray['nombreR'][$i] = $redis->Lrange('itemNames', $i, $i);
+    $mapArray['ano'][$i] = getItemDate($ids[$i]);
     // $mapArray['macros'][$i] = getMacroDescription($ids[$i]);
     // $mapArray['micros'][$i] = getMicroDescription($ids[$i]);
     // $mapArray['textura'][$i] = getTextures($ids[$i]);
     // $mapArray['Afloramiento'][$i] = getAfloramiento($ids[$i]);
     // $mapArray['intragranos'][$i] = getIntraTexturesDescription($ids[$i]);
-    // $mapArray['altitud'][$i] = getHeight($ids[$i]);
+    $mapArray['altitud'][$i] = getHeight($ids[$i]);
 }
 echo json_encode($mapArray);
