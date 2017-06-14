@@ -2,7 +2,7 @@
 /*
 Codigo de la libreria de PHP Image Workshop.
 */
-
+use PHPImageWorkshop\ImageWorkshop;
 require_once('imageWorkshop/src/PHPImageWorkshop/ImageWorkshop.php');
 require_once('imageWorkshop/src/PHPImageWorkshop/Core/ImageWorkshopLayer.php');
 require_once('imageWorkshop/src/PHPImageWorkshop/Core/ImageWorkshopLib.php');
@@ -20,7 +20,7 @@ foreach ($files as $file) {
 
 function resizeImage($imageName)
 {
-    $imgLayer = PHPImageWorkshop\ImageWorkshop::initFromPath('../images/rockImages/'.$imageName);
+    $imgLayer = ImageWorkshop::initFromPath('../images/rockImages/'.$imageName);
     $imgLayer->resizeInPixel(400, null, true);
 
     $dirPath         = "../images/resizedImages/";
