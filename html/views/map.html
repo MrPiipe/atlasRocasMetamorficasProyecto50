@@ -6,12 +6,12 @@
 var directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
   var Medellin = new google.maps.LatLng(4.159769621076605, -72.93013669999999);
-  var mapOptions = { 
-    zoom:5, 
+  var mapOptions = {
+    zoom:5,
     zoomControl : true,
     streetViewControl: false,
     panControl: true,
-    mapTypeId: google.maps.MapTypeId.HYBRID, 
+    mapTypeId: google.maps.MapTypeId.HYBRID,
     center: Medellin }
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
   directionsDisplay.setMap(map);
@@ -23,6 +23,7 @@ var directionsService = new google.maps.DirectionsService();
     }).done(function(data){
       var muestras = JSON.parse(data);
       var length = muestras.length;
+      console.log(muestras);
     for(var x=0 ; x < length; x++){
       var nombre = muestras[x].name;
       var codigo = muestras[x].codigo;
@@ -63,7 +64,7 @@ var directionsService = new google.maps.DirectionsService();
                     map: map,
                     title: nombre,
                     icon: '../images/nuevo pin naranja-02.png'
-                  }); 
+                  });
               };
 
               if(zona == "3"){
@@ -100,7 +101,7 @@ var directionsService = new google.maps.DirectionsService();
                     title: nombre,
                     icon: '../images/nuevo pin azul-02.png'
                   });
-              };  
+              };
 
               var marker =  window[nombre];
 
@@ -111,7 +112,7 @@ var directionsService = new google.maps.DirectionsService();
               content += '</div>';
               content += '<img style="width: 120px; margin-right:20px;" src="' + imagenuno + '"; float:"left" >';
               content += '<div id="nombre" style="visibility: hidden; height: 0px; width: 0px">' + x + '</div>';
-              content += '</form></div>'; 
+              content += '</form></div>';
               google.maps.event.trigger(map, 'resize');
               var infowindow = new google.maps.InfoWindow();
 
@@ -122,7 +123,7 @@ var directionsService = new google.maps.DirectionsService();
                 };
              })(marker, content, infowindow));
            }
-    };  
+    };
   });
   </script>
 
@@ -187,7 +188,7 @@ var directionsService = new google.maps.DirectionsService();
   <p class="Info_Areas">Esta área incluye a la región de Guainía, el Macizo de Garzón, la Serranía de la Macarena y región suroriental del nudo de los Pastos; como su nombre las define éstas están delimitados por la falla Guaicaramo y tienen una variación de facies típicas de las series Bucan – Abukuma y Barrowiana, determinadas la mayoría en el evento metamórfico Nickeriense (también conocido como la Orogenia Grenville), a excepción de la región de Guainía, que también está afectada por eventos anteriores como el Transamazónico y el evento magmático Parguense. (Maya, 2001) Las unidades geológicas más importantes son: Complejo Migmatítico de Mitú, Granulitas del Macizo de Garzón y Serranía de la Macarena. (Ingeominas, 2007)<br>
 
   REFERENCIAS:<br>
-  Ingeominas. 2007. The Geological Map of Colombia – GMC. Instituto Colombiano de Geología y Mineria. Bogotá. 
+  Ingeominas. 2007. The Geological Map of Colombia – GMC. Instituto Colombiano de Geología y Mineria. Bogotá.
 
   Maya, M. 2001. Distribución, facies y edad de las rocas metamórficas en Colombia. INGEOMINAS. Colombia. Pp. 1 – 37. </p>
   </div>
@@ -259,11 +260,11 @@ var directionsService = new google.maps.DirectionsService();
       <h4 class="muestrac">     Distribucion Metamorfismo en Colombia </h4>
       <p class="Info_Caja"> Se realizado una exhaustiva revisión de las diferentes secciones delgadas pertenecientes al atlas de rocas metamórficas de la Universidad EAFIT y de éstas se han seleccionado las más representativas de los diferentes tipos de metamorfismo presentes en Colombia, las cuales a su vez, se encuentran debidamente georeferenciadas y descritas; representando claros ejemplos de las zonas geográficas donde afloran rocas metamórficas en Colombia, y se encuentran caracterizadas y delimitadas por Maya (2001). Para cada una de estas zonas se presenta una descripción asociada al tipo de metamorfismo dominante, y una selección de muestras que contienen análisis petrográfico, análisis de imágenes digitales y su debida localización en el mapa de distribución de facies metamórficas.<br>
       Actualmente, la distribución de las rocas metamórficas, ha permitido que estas se clasifiquen en diferentes unidades metamórficas, en donde las condiciones de presión y temperatura, y además el tiempo de ocurrencia de los diversos eventos metamórficos que han sido impuestos en los cuerpos rocosos, son características claves para la definición y descripción de estos.<br>
-      Esta distribución de las rocas metamórficas en Colombia en términos de Maya (2001), se describe con base en la separación de seis áreas geográficas limitadas por grandes fallas: 
-      <br>1) <md-button style="color:#fff; font-size:12px" id="boton1" ng-click="ShowMe1=!ShowMe1; ShowMe2=false; ShowMe3=false; ShowMe4=false; ShowMe5=false; ShowMe6=false">Al Oriente de la Falla Guaicáramo</md-button>, 
-      <br>2) <md-button style="color:#fff; font-size:12px" id="boton2" ng-click="ShowMe1=false; ShowMe2=!ShowMe2; ShowMe3=false; ShowMe4=false; ShowMe5=false; ShowMe6=false">Entre las fallas Guaicáramo y Otú-Pericos</md-button>, 
+      Esta distribución de las rocas metamórficas en Colombia en términos de Maya (2001), se describe con base en la separación de seis áreas geográficas limitadas por grandes fallas:
+      <br>1) <md-button style="color:#fff; font-size:12px" id="boton1" ng-click="ShowMe1=!ShowMe1; ShowMe2=false; ShowMe3=false; ShowMe4=false; ShowMe5=false; ShowMe6=false">Al Oriente de la Falla Guaicáramo</md-button>,
+      <br>2) <md-button style="color:#fff; font-size:12px" id="boton2" ng-click="ShowMe1=false; ShowMe2=!ShowMe2; ShowMe3=false; ShowMe4=false; ShowMe5=false; ShowMe6=false">Entre las fallas Guaicáramo y Otú-Pericos</md-button>,
       <br>3) <md-button style="color:#fff; font-size:12px" id="boton3" ng-click="ShowMe1=false; ShowMe2=false; ShowMe3=!ShowMe3; ShowMe4=false; ShowMe5=false; ShowMe6=false">Entre la Falla Otú-Pericos y la Falla Cauca-Almaguer (Romeral)</md-button>,
-      <br>4) <md-button style="color:#fff; font-size:12px" id="boton4" ng-click="ShowMe1=false; ShowMe2=false; ShowMe3=false; ShowMe4=!ShowMe4; ShowMe5=false; ShowMe6=false">Al Occidente de la Falla Romeral</md-button>, 
+      <br>4) <md-button style="color:#fff; font-size:12px" id="boton4" ng-click="ShowMe1=false; ShowMe2=false; ShowMe3=false; ShowMe4=!ShowMe4; ShowMe5=false; ShowMe6=false">Al Occidente de la Falla Romeral</md-button>,
       <br>5) <md-button style="color:#fff; font-size:12px" id="boton5" ng-click="ShowMe1=false; ShowMe2=false; ShowMe3=false; ShowMe4=false; ShowMe5=!ShowMe5; ShowMe6=false">Entre las fallas Oca y Santa Marta - Bucaramanga y </md-button>
       <br>6) <md-button style="color:#fff; font-size:12px" id="boton6" ng-click="ShowMe1=false; ShowMe2=false; ShowMe3=false; ShowMe4=false; ShowMe5=false; ShowMe6=!ShowMe6">Al norte de la Falla de Oca</md-button>.</p>
   </div>
@@ -276,7 +277,7 @@ var directionsService = new google.maps.DirectionsService();
       El metamorfismo puede ser clasificado en diferentes <a href="http://mapas.eafit.edu.co/rid=1NBZ5F4Z1-257016F-BL/Tipos_Metamorfismo.cmap" target="_blank">tipos de metamorfismo</a> dependiendo de los criterios que sean utilizados, y teniendo en cuenta el principal factor que ha conllevado a que se produzca metamorfismo. En nuestro caso, partimos de tres tipos de metamorfismo principales, <a href="http://mapas.eafit.edu.co/rid=1NBZ5F4Z1-1YM3MJ3-BH/Metamorfismo_Regional.cmap" target="_blank">metamorfismo regional</a>, <a href="http://mapas.eafit.edu.co/rid=1NBZ5F4Z1-1VSZ3F8-BM/Metamorfismo_Contacto.cmap" target="_blank">metamorfismo de contacto</a> y <a href="http://mapas.eafit.edu.co/rid=1NCGT3HG7-19FT6RN-B7S/Metamorfismo%20Din%C3%A1mico.cmap" target="_blank">metamorfismo dinamico</a>; los cuales pueden abarcar diferentes sub-tipos de metamorfismo asociados entre sí.<br>
       El metamorfismo regional da lugar a grandes extensiones de rocas metamórficas asociadas a cadenas montañosas, se encuentra asociado exclusivamente a zonas de subducción y afecta los cuerpos rocosos regionalmente. Es el resultado del efecto simultáneo de presión y temperatura. Las regiones que son afectadas por este tipo de metamorfismo, pueden presentar zonas donde el proceso ha sido más o menos intenso, dependiendo de la profundidad en la que se desarrolló el evento. En las zonas poco profundas, el metamorfismo suele ser poco intenso, por el contrario, en las zonas más profundas, las rocas suelen encontrarse intensamente metamorfizadas. Las variaciones en el grado de metamorfismo están caracterizada por series de rocas metamórficas: <a href="http://mapas.eafit.edu.co/rid=1NDDTPR87-1J4NKMP-79D/Serie%20Buchan.cmap" target="_blank">La serie Buchan</a> y <a href="http://mapas.eafit.edu.co/rid=1P71JR2T3-WYQZ9H-HSS/Serie%20Barrowiana.cmap" target="_blank">la serie Barrowiana</a> están restringidas a condiciones de temperatura y presión bajas a medias, mientras que <a href="http://mapas.eafit.edu.co/rid=1P71FMZ7L-11ZLWWM-GKQ/Serie%20Franciscana.cmap" target="_blank">la serie Franciscana</a> y <a href="http://mapas.eafit.edu.co/rid=1P71DTMWF-138FRTC-DKH/Serie%20Sambagawa.cmap" target="_blank">la serie Sambagawa</a> están dominadas por condiciones de presión y temperaturas muy altas, dando lugar a un tipo de metamorfismo específico de estas dos series; denominado Metamorfismo High P-T (Por su nombre en español, metamorfismo de alta presión y temperatura).<br>
       Por otra parte, el metamorfismo de contacto se produce a raíz del aumento local de la temperatura de una roca encajante, como consecuencia de una intrusión ígnea, este proceso da paso a un fenómeno que se conoce como aureola de contacto, gracias al emplazamiento de un fundido ígneo. Generalmente las rocas que se encuentran dentro de la aureola de contacto, no presentan deformaciones, los minerales metamórficos no evidencian ninguna orientación preferencial, dando lugar a rocas masivas y muy duras que reciben el nombre genérico de corneanas.<br>
-      Dentro del metamorfismo de contacto, también se presentan fenómenos como el <a href="http://mapas.eafit.edu.co/rid=1P7140VBX-77BK32-3ZZ/Metamorfismo%20por%20combusti%C3%B3n%20y%20descarga%20de%20rayos%20(contacto).cmap" target="_blank">metamorfismo por descarga de rayos</a>, es un tipo de metamorfismo de extensión local, el cual se da por contacto de una descarga eléctrica en la roca, modificando su composición mineralógica. La roca resultante es comúnmente una fulgurita, sin embargo también pueden resultar rocas netamente vítreas.<br> 
+      Dentro del metamorfismo de contacto, también se presentan fenómenos como el <a href="http://mapas.eafit.edu.co/rid=1P7140VBX-77BK32-3ZZ/Metamorfismo%20por%20combusti%C3%B3n%20y%20descarga%20de%20rayos%20(contacto).cmap" target="_blank">metamorfismo por descarga de rayos</a>, es un tipo de metamorfismo de extensión local, el cual se da por contacto de una descarga eléctrica en la roca, modificando su composición mineralógica. La roca resultante es comúnmente una fulgurita, sin embargo también pueden resultar rocas netamente vítreas.<br>
       <a href="http://mapas.eafit.edu.co/rid=1P713TVXP-27WYZX5-3MF/Pirometamorfismo%20(contacto).cmap" target="_blank">El pirometamorfismo</a> es otro tipo de metamorfismo de contacto caracterizado por muy altas temperaturas y bajas presiones, que son generadas por un cuerpo volcánico; el pirometamorfismo puede venir acompañado por varios grados de fusión parcial. <a href="http://mapas.eafit.edu.co/rid=1P714LJR7-T0VPXP-50Q/Metamorfismo%20Hot-Slab%20(contacto).cmap" target="_blank">El metamorfismo hot-slab</a> es otro tipo de metamorfismo de contacto de extensión local,  ocurre bajo el emplazamiento de un cuerpo tectónico caliente en donde el gradiente térmico se encuentra invertido y se caracteriza por ser muy abrupto.  <a href="http://mapas.eafit.edu.co/rid=1P7140VBX-77BK32-3ZZ/Metamorfismo%20por%20combusti%C3%B3n%20y%20descarga%20de%20rayos%20(contacto).cmap" target="_blank">El metamorfismo por combustión</a> es un tipo de metamorfismo de extensión local producido por combustión espontánea de sustancias de origen natural como rocas bituminosas, carbón y petróleo.<br><br>
 
       Finalmente el metamorfismo dinámico es el resultado de la deformación intensa de los cuerpos rocosos, este proceso metamorfico, tiene lugar en las zonas de falla, los bloques se fracturan y se trituran debido a la fricción que se genera entre ellos, dicha fricción también genera condiciones de calor que en conjunto dan resultado a cataclasitas o brechas de falla.<br><br>
