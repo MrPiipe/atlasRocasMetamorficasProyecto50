@@ -31,8 +31,8 @@ $redis   = new Predis\Client();
 $ids = $redis->Lrange('itemIds', 0, -1);
 $mapArray = array();
 for ($i = 0; $i < count($ids);$i++) {
-    $imgArray              = $redis->Lrange('itemIdThumbns', $i, $i);
-    $mapArray['img'][$i]  = getBitstreamThumbUrl($imgArray[0]);
+    // $imgArray              = $redis->Lrange('itemIdThumbns', $i, $i);
+    // $mapArray['img'][$i]  = getBitstreamThumbUrl($imgArray[0]);
     $mapArray['name'][$i] = $redis->Lrange('itemNames', $i, $i);
     $mapArray['codigo'][$i]  = $redis->Lrange('itemIds', $i, $i);
     $mapArray['longitud'][$i] = $redis->Lrange('Longitudes', $i, $i);
@@ -45,6 +45,6 @@ for ($i = 0; $i < count($ids);$i++) {
     // $mapArray['textura'][$i] = getTextures($ids[$i]);
     // $mapArray['Afloramiento'][$i] = getAfloramiento($ids[$i]);
     // $mapArray['intragranos'][$i] = getIntraTexturesDescription($ids[$i]);
-    $mapArray['altitud'][$i] = getHeight($ids[$i]);
+    // $mapArray['altitud'][$i] = getHeight($ids[$i]);
 }
 echo json_encode($mapArray);

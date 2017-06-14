@@ -24,6 +24,7 @@
     }).done(function(data) {
       var muestras = JSON.parse(data);
       var length = muestras['name'].length;
+      console.log(muestras);
       for (var x = 0; x < length; x++) {
         var nombre = muestras['name'][x];
         var codigo = muestras['codigo'][x];
@@ -43,7 +44,7 @@
         // var grado = muestras[x].grado;
         var latitud = muestras['latitud'][x];
         var longitud = muestras['longitud'][x];
-        var altitud = muestras['altitud'][x];
+        // var altitud = muestras['altitud'][x];
         var zona = muestras['zona'][x];
         var id = muestras['codigo'][x];
 
@@ -368,7 +369,7 @@
         // var grado = muestras[x].grado;
         var latitud = muestras[x].latitud;
         var longitud = muestras[x].longitud;
-        var altitud = muestras[x].altitud;
+        // var altitud = muestras[x].altitud;
         var zona = muestras[x].zona;
         var variable = document.getElementById("nombre").innerHTML;
 
@@ -390,7 +391,7 @@
           // localStorage.setItem("grado", grado);
           localStorage.setItem("latitud", latitud);
           localStorage.setItem("longitud", longitud);
-          localStorage.setItem("altitud", altitud);
+          // localStorage.setItem("altitud", altitud);
           window.location = "index.html#/sample";
         };
       };
