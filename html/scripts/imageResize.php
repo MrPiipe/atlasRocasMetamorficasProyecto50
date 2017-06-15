@@ -19,8 +19,7 @@ foreach ($files as $file) {
     }
 }
 
-function resizeImage($imageName)
-{
+function resizeImage($imageName){
     $imgLayer = ImageWorkshop::initFromPath('../images/rockImages/'.$imageName);
     $imgLayer->resizeInPixel(400, null, true);
 
@@ -28,7 +27,7 @@ function resizeImage($imageName)
     $filename        = $imageName;
     $createFolders   = true;
     $backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
-    $imageQuality    = 88; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
+    $imageQuality    = 92; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
 
     $imgLayer->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
 }
