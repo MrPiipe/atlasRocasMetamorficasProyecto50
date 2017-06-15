@@ -1,5 +1,5 @@
 <?php
-$xml = simplexml_load_file('../scripts/getter_config.xml');
+$xml = simplexml_load_file(dirname(__FILE__).'/getter_config.xml');
 function getBitstreamIdOrig($id_req)
 {
     $json_output = json_decode(getJSONbits($id_req), true);
@@ -37,6 +37,11 @@ function getBitstreamThumb($id_req)
     }
     $imgStr = "http://mydspaceis.dis.eafit.edu.co/rest/bitstreams/" . $id_req . "/retrieve";
     return ('<img id="thumbnailImg" src="' . $imgStr . '"/>');
+}
+function getBitstreamThumbUrl($id_req)
+{
+    $imgStr = "http://mydspaceis.dis.eafit.edu.co/rest/bitstreams/" . $id_req . "/retrieve";
+    return $imgStr;
 }
 function getJSONbits($id_req)
 {

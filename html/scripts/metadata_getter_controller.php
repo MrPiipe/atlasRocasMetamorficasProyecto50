@@ -24,7 +24,7 @@ zona
 
  */
 
-$xml = simplexml_load_file('../scripts/getter_config.xml');
+$xml = simplexml_load_file(dirname(__FILE__).'/getter_config.xml');
 function getLongitude($id_req)
 {
     $json_output = json_decode(getJSON($id_req), true);
