@@ -12,7 +12,7 @@ require_once('imageWorkshop/src/PHPImageWorkshop/Core/ImageWorkshopLib.php');
 $files = new DirectoryIterator('../images/rockImages/');
 foreach ($files as $file) {
     if (!($file->isDot())) {
-        resizeImage($file);
+        resizeImage($file->getFileName());
         echo $file." Resized\n";
         $file = null;
     }
