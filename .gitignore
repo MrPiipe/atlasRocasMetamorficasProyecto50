@@ -1,12 +1,8 @@
-/public/storage
-/storage/*.key
-/vendor
 /.idea
 git
 /html/node_modules
+/html/bower_components
 /html/images/rockImages/
 /html/images/resizedImages/
 
-Homestead.json
-Homestead.yaml
 .env
