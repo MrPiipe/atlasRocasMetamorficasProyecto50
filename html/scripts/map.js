@@ -107,12 +107,6 @@ $.ajax({
     };
 });
 
-$(document).ready(function() {
-    $('.imgpop').magnificPopup({
-        type: 'image'
-    });
-});
-
 $("#boton1").click(function() {
     $.scrollTo('#muestraa', 800);
 });
