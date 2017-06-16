@@ -11,10 +11,8 @@ $dates = $redis->Lrange('itemDates', 0, -1);
 $images = $redis->Lrange('itemIdThumbns', 0, -1);
 $numIDs = count($redis->Lrange('itemIds', 0, -1));
 $indexNames = $redis->zrange('itemIndexedNames', 0, -1);
-//print_r($names);
 
 $query = explode(' ', $_POST['query']);
-//$query = explode(' ', 'roca');
 $numQuery = count($query);
 
 for ($i = 0, $k = 0; $i < $numIDs; $i++) {
