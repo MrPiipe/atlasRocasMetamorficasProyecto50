@@ -1,32 +1,7 @@
 <?php
 
-/*
-Cuando los gets son llamados, estos usan el metodo getJSON (Codigo de Postman), para conseguir el JSON de el ID solicitado.
-Usamos el JSON, lo recorremos y sacamos la informacion que necesitamos, ya sea la fecha, titulo, autor, etc...
-Este realiza un "echo" que desplegara el valor solicitado.
-Las funciones hacen lo siguiente:
-Titulo del item
-Fecha/año de recoleccion
-Nombre/autor del recolector
-Coordenadas de locacion
-Codigo del item
-Descripcion macroscopica
-Descripcion microscopica
-Tipo y grado de metamorfismo
-Tipo de afloramiento
-Textura general
-Descripcion mineralogica
-Descripcion de texturas intragranos
-
-longitud
-latitud
-zona
-
- */
-
 $xml = simplexml_load_file(dirname(__FILE__).'/getter_config.xml');
-function getLongitude($id_req)
-{
+function getLongitude($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->longitude)) {
@@ -35,8 +10,7 @@ function getLongitude($id_req)
     }
 }
 
-function getLatitude($id_req)
-{
+function getLatitude($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->latitude)) {
@@ -45,8 +19,7 @@ function getLatitude($id_req)
     }
 }
 
-function getZone($id_req)
-{
+function getZone($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->zone)) {
@@ -55,9 +28,7 @@ function getZone($id_req)
     }
 }
 
-function getItemDate($id_req)
-{
-    //Fecha/año de recoleccion
+function getItemDate($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->article_date)) {
@@ -65,9 +36,7 @@ function getItemDate($id_req)
         }
     }
 }
-function getName($id_req)
-{
-    //Titulo del item
+function getName($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->name)) {
@@ -75,9 +44,7 @@ function getName($id_req)
         }
     }
 }
-function getLocation($id_req)
-{
-    //Coordenadas de locacion
+function getLocation($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->location)) {
@@ -85,9 +52,7 @@ function getLocation($id_req)
         }
     }
 }
-function getHeight($id_req)
-{
-    //Altura del item
+function getHeight($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->height)) {
@@ -95,9 +60,7 @@ function getHeight($id_req)
         }
     }
 }
-function getId($id_req)
-{
-    //Codigo del item
+function getId($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->id)) {
@@ -105,9 +68,7 @@ function getId($id_req)
         }
     }
 }
-function getMacroDescription($id_req)
-{
-    //Descripcion macroscopica
+function getMacroDescription($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->desc_macro)) {
@@ -115,9 +76,7 @@ function getMacroDescription($id_req)
         }
     }
 }
-function getAuthor($id_req)
-{
-    //Nombre/autor del recolector
+function getAuthor($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->author)) {
@@ -125,9 +84,7 @@ function getAuthor($id_req)
         }
     }
 }
-function getTextures($id_req)
-{
-    //Textura general
+function getTextures($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->textures)) {
@@ -135,9 +92,7 @@ function getTextures($id_req)
         }
     }
 }
-function getMicroDescription($id_req)
-{
-    //Descripcion microscopica
+function getMicroDescription($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->desc_micro)) {
@@ -145,9 +100,7 @@ function getMicroDescription($id_req)
         }
     }
 }
-function getMetamorphism($id_req)
-{
-    //Tipo y grado de metamorfismo
+function getMetamorphism($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->metamorphism)) {
@@ -155,9 +108,7 @@ function getMetamorphism($id_req)
         }
     }
 }
-function getAfloramiento($id_req)
-{
-    //Tipo de afloramiento
+function getAfloramiento($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->afloramiento)) {
@@ -165,9 +116,7 @@ function getAfloramiento($id_req)
         }
     }
 }
-function getMineralDescription($id_req)
-{
-    //Descripcion mineralogica
+function getMineralDescription($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->desc_mineral)) {
@@ -175,9 +124,7 @@ function getMineralDescription($id_req)
         }
     }
 }
-function getIntraTexturesDescription($id_req)
-{
-    //Descripcion de texturas intragranos
+function getIntraTexturesDescription($id_req){
     $json_output = json_decode(getJSON($id_req), true);
     foreach ($json_output as $key) {
         if (!strcmp($key['key'], (string) $GLOBALS['xml']->metadata->desc_textures_intragranos)) {
@@ -185,8 +132,7 @@ function getIntraTexturesDescription($id_req)
         }
     }
 }
-function getJSON($id_req)
-{
+function getJSON($id_req){
     set_time_limit(0);
     $client  = new http\Client;
     $request = new http\Client\Request;
@@ -194,9 +140,9 @@ function getJSON($id_req)
     $request->setRequestUrl((string) $GLOBALS['xml']->request->request_url . '/items/' . $id_req . '/metadata');
     $request->setRequestMethod((string) $GLOBALS['xml']->request->request_method);
     $request->setHeaders(array(
-        'postman-token' => (string) $GLOBALS['xml']->request->header_token, //Quizas hay que cambiarlo (?) No estoy seguro
+        'postman-token' => (string) $GLOBALS['xml']->request->header_token,
         'cache-control' => (string) $GLOBALS['xml']->request->header_cache,
-        'authorization' => (string) $GLOBALS['xml']->request->header_auth, //Se tendra que cambiar en cierto punto por la autorizacion de la cuenta (?)
+        'authorization' => (string) $GLOBALS['xml']->request->header_auth,
     ));
 
     $client->enqueue($request)->send();

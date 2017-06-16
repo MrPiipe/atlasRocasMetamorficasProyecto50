@@ -9,27 +9,10 @@ Predis\Autoloader::register();
 try {
     $redis = new Predis\Client();
 
-    // This connection is for a remote server
-    /*
-    $redis = new PredisClient(array(
-    "scheme" => "tcp",
-    "host" => "153.202.124.2",
-    "port" => 6379
-    ));
-     */
-
-    /*
-    Bloque de actualizar los Ids de los items de una coleccion
-     */
-
     $redis->del('itemIds');
     $itemIds = getCollectionitemIds('6');
     $redis->rpush('itemIds', $itemIds);
     echo("Ids Actualizados\n");
-
-    /*
-    Bloque de actualizar los Nombres de los items de una coleccion
-     */
 
     $redis->del('itemNames');
     $redis->del('itemIndexedNames');
@@ -43,23 +26,13 @@ try {
     }
     echo("Nombres Actualizados\n");
 
-    /*
-    Bloque de actualizar las Fechas de los items de una coleccion
-     */
-
     $redis->del('itemDates');
-
     foreach ($itemIds as $i) {
         $redis->rpush('itemDates', getitemDate($i));
     }
     echo("Fechas Actualizadas\n");
 
-    /*
-    Bloque de actualizar los IDs de los Thumbnails de los items de una coleccion
-     */
-
     $redis->del('itemIdThumbns');
-
     foreach ($itemIds as $i) {
         if ((getBitstreamIdThumb($i))!=0) {
             $redis->rpush('itemIdThumbns', getBitstreamIdThumb($i));
@@ -69,19 +42,13 @@ try {
     }
     echo("IDs de Thumbnails Actualizadas\n");
 
-    /*
-    Bloque de actualizar los Thumbnails de los items de una coleccion
-     */
-
     $redis->del('itemThumbns');
     $thumbIds = $redis->Lrange('itemIdThumbns', 0, -1);
     foreach ($thumbIds as $i) {
         $redis->rpush('itemThumbns', getBitstreamThumb($i));
     }
     echo("Thumbnails Actualizadas\n");
-    /*
-    Bloque de actualizar las longitudes de los items de una coleccion
-     */
+
     $redis->del('Longitudes');
     $itemIds = getCollectionitemIds('6');
 
@@ -89,9 +56,7 @@ try {
         $redis->rpush('Longitudes', getLongitude($i));
     }
     echo("Longitudes Actualizadas\n");
-    /*
-    Bloque de actualizar las latitudes de los items de una coleccion
-     */
+
     $redis->del('Latitudes');
     $itemIds = getCollectionitemIds('6');
 
@@ -99,9 +64,7 @@ try {
         $redis->rpush('Latitudes', getLatitude($i));
     }
     echo("Latitudes Actualizadas\n");
-    /*
-    Bloque de actualizar las zonas de los items de una coleccion
-     */
+
     $redis->del('Zones');
     $itemIds = getCollectionitemIds('6');
 

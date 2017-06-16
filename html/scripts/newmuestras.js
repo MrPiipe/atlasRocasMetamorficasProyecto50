@@ -1,4 +1,3 @@
-//Get all pages, loop through them and hide them, then show the requested page
 function show(elementID, pageNum, search) {
     var pages = document.getElementsByClassName('page');
     for(var i = 0; i < pages.length; i++) {
@@ -9,7 +8,7 @@ function show(elementID, pageNum, search) {
     }
     elementID.style.display = '';
 }
-//Realiza la busqueda en Redis con el query que tenga el input de "query". Retorna los 9 mejores elementos de la busqueda
+
 function searchRedis() {
     var query = document.getElementById("query").value;
     $.ajax({
@@ -40,7 +39,7 @@ function autoComplete() {
     console.log(awesomplete);
 
 }
-//Utiliza Ajax para popular la vista de muestra, utiliza el script de moreitems.php para coger los metadatos de Redis
+
 function getData(pageNum) {
     displayPages(pageNum);
     $.ajax({
@@ -55,7 +54,7 @@ function getData(pageNum) {
         }
     });
 }
-//Despliega los datos a partir de un JSON que recibe.
+
 function displayData(data, pageNum) {
     $('#pag' + pageNum).children("tr").remove();
     $('#pag' + pageNum).children("td").remove();
@@ -80,7 +79,7 @@ function displayData(data, pageNum) {
     }
 }
 var display = '';
-//Crea la numeracion de las paginas a partir de la cantidad de items que existan en el repositorio de DSpace
+
 function displayPages(pageNum) {
     $.ajax({
             url: '../scripts/collections_getter_controller.php',
