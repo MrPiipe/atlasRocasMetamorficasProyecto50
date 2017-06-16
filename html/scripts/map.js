@@ -36,7 +36,6 @@ $.ajax({
             window[nombre] = new google.maps.Marker({
                 position: latlong,
                 map: map,
-                // title: nombre,
                 icon: '../images/nuevo pin rosa-02.png'
             });
         };
@@ -45,7 +44,6 @@ $.ajax({
             window[nombre] = new google.maps.Marker({
                 position: latlong,
                 map: map,
-                title: nombre,
                 icon: '../images/nuevo pin naranja-02.png'
             });
         };
@@ -54,7 +52,6 @@ $.ajax({
             window[nombre] = new google.maps.Marker({
                 position: latlong,
                 map: map,
-                title: nombre,
                 icon: '../images/nuevo pin amarillo-02.png'
             });
         };
@@ -63,7 +60,6 @@ $.ajax({
             window[nombre] = new google.maps.Marker({
                 position: latlong,
                 map: map,
-                title: nombre,
                 icon: '../images/nuevo pin verde-02.png'
             });
         };
@@ -72,7 +68,6 @@ $.ajax({
             window[nombre] = new google.maps.Marker({
                 position: latlong,
                 map: map,
-                title: nombre,
                 icon: '../images/nuevo pin morado-02.png'
             });
         };
@@ -81,7 +76,6 @@ $.ajax({
             window[nombre] = new google.maps.Marker({
                 position: latlong,
                 map: map,
-                title: nombre,
                 icon: '../images/nuevo pin azul-02.png'
             });
         };
@@ -98,12 +92,14 @@ $.ajax({
         content += '</form></div>';
         google.maps.event.trigger(map, 'resize');
         var infowindow = new google.maps.InfoWindow();
-        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
-            return function() {
-                infowindow.setContent(content);
-                infowindow.open(map, marker);
-            };
-        })(marker, content, infowindow));
+        if(marker) {
+            google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
+                return function() {
+                    infowindow.setContent(content);
+                    infowindow.open(map, marker);
+                };
+            })(marker, content, infowindow));
+        }
     };
 });
 
