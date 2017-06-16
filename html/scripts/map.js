@@ -86,7 +86,7 @@ $.ajax({
             });
         };
 
-        var marker = window[nombre];
+        var marker;
 
         var content = '<div class="row vertical-align">';
         content += '<form id="formulario1" method="post"><div class="col-md-6 columns">';
@@ -98,12 +98,15 @@ $.ajax({
         content += '</form></div>';
         google.maps.event.trigger(map, 'resize');
         var infowindow = new google.maps.InfoWindow();
-        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
-            return function() {
-                infowindow.setContent(content);
-                infowindow.open(map, marker);
-            };
-        })(marker, content, infowindow));
+
+        if(marker) {
+            google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
+                return function() {
+                    infowindow.setContent(content);
+                    infowindow.open(map, marker);
+                };
+            })(marker, content, infowindow));
+        }
     };
 });
 
