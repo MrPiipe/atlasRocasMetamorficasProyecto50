@@ -1,7 +1,6 @@
 <?php
 $xml = simplexml_load_file(dirname(__FILE__).'/getter_config.xml');
-function getBitstreamIdOrig($id_req)
-{
+function getBitstreamIdOrig($id_req){
     $json_output = json_decode(getJSONbits($id_req), true);
     $img         = array();
     foreach ($json_output as $key) {
@@ -11,8 +10,7 @@ function getBitstreamIdOrig($id_req)
     }
     return $img;
 }
-function getBitstreamIdThumb($id_req)
-{
+function getBitstreamIdThumb($id_req){
     $json_output = json_decode(getJSONbits($id_req), true);
     $img         = array();
     foreach ($json_output as $key) {
@@ -23,37 +21,33 @@ function getBitstreamIdThumb($id_req)
     }
     return $img;
 }
-function getBitstreamImg($id_req, $i)
-{
+function getBitstreamImg($id_req, $i){
     $linkStr = "../images/rockImages/" . $id_req . ".jpg";
     $imgStr = "../images/resizedImages/" . $id_req . ".jpg";
     return ('<a href="'.$linkStr.'"> <img style="left: -25px;" src="' . $imgStr . '"/></a>');
 }
 
-function getBitstreamThumb($id_req)
-{
+function getBitstreamThumb($id_req){
     if ($id_req==0) {
         return ('<img id="thumbnailImg" src="../images/roca.png"/>');
     }
     $imgStr = "http://mydspaceis.dis.eafit.edu.co/rest/bitstreams/" . $id_req . "/retrieve";
     return ('<img id="thumbnailImg" src="' . $imgStr . '"/>');
 }
-function getBitstreamThumbUrl($id_req)
-{
+function getBitstreamThumbUrl($id_req){
     $imgStr = "http://mydspaceis.dis.eafit.edu.co/rest/bitstreams/" . $id_req . "/retrieve";
     return $imgStr;
 }
-function getJSONbits($id_req)
-{
+function getJSONbits($id_req){
     set_time_limit(0);
     $client  = new http\Client;
     $request = new http\Client\Request;
     $request->setRequestUrl((string) $GLOBALS['xml']->request->request_url . '/items/' . $id_req . '/bitstreams');
     $request->setRequestMethod((string) $GLOBALS['xml']->request->request_method);
     $request->setHeaders(array(
-        'postman-token' => (string) $GLOBALS['xml']->request->header_token, //Quizas hay que cambiarlo (?) No estoy seguro
+        'postman-token' => (string) $GLOBALS['xml']->request->header_token,
         'cache-control' => (string) $GLOBALS['xml']->request->header_cache,
-        'authorization' => (string) $GLOBALS['xml']->request->header_auth, //Se tendra que cambiar en cierto punto por la autorizacion de la cuenta (?)
+        'authorization' => (string) $GLOBALS['xml']->request->header_auth,
     ));
 
     $client->enqueue($request)->send();
